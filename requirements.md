@@ -20,3 +20,4 @@ Um leitor de strings `JSON` que o transforma em um `Map`.
 
 1. `Map` deve ser do tipo `LinearMap`;
 2. As chaves de `Map` são `strings`.
+3. Os valores de `Map` serão um outro struct para armazenar tipo.
