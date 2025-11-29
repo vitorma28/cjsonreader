@@ -7,7 +7,6 @@
 
 typedef struct {
     const void * begin;
-    const void * end;
     size_t size;
     size_t offset;
 } Arena;
