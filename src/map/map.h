@@ -29,3 +29,6 @@ typedef struct {
     size_t maxLength;
 } Map;
 
+
+Map * newMap();
+
