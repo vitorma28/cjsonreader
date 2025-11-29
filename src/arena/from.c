@@ -1,7 +1,8 @@
+#include <stdlib.h>
 #include "./arena.h"
 
 
-Arena * ArenaFrom(const void * memory, size_t size) {
+Arena * ArenaFrom(void * memory, size_t size) {
     Arena * arena = (Arena *) malloc(sizeof(Arena *));
 
     if (arena == NULL) {
