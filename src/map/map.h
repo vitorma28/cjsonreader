@@ -1,25 +1,29 @@
+#ifndef MAP_H
+#define MAP_H
+
 #include <stddef.h>
+#include "../arena/arena.h"
 
 
-enum JSTypes {
+typedef enum {
     STRING,
     NUMBER,
     BOOLEAN,
     OBJECT,
     ARRAY,
     JSNULL
-};
+} JSTypes;
 
 
 typedef struct {
-    enum JSTypes type;
+    JSTypes type;
     void * value;
 } Value;
 
 
 typedef struct {
     char * key;
-    Value value;
+    Value * value;
 } MapEntry;
 
 
@@ -30,5 +34,12 @@ typedef struct {
 } Map;
 
 
-Map * newMap();
+Map * newMap(Arena * arena);
+Value * MapGet(Map * map, char * key);
 
+MapEntry * newMapEntry(Arena * arena, char * key, Value * value);
+
+Value * newValue(Arena * arena, JSTypes dataType, void * dataValue);
+
+
+#endif

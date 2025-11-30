@@ -3,7 +3,7 @@
 
 
 Arena * newArena(size_t size) {
-    Arena * arena = (Arena *) malloc(sizeof(Arena *));
+    Arena * arena = (Arena *) malloc(sizeof(Arena));
 
     if (arena == NULL) {
         return NULL;
