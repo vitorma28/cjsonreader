@@ -1,12 +1,21 @@
 #include "./arena.h"
+#include <stdlib.h>
 
 
 Arena * newArena(size_t size) {
     Arena * arena = (Arena *) malloc(sizeof(Arena *));
-    void * memory = malloc(size);
+
+    if (arena == NULL) {
+        return NULL;
+    }
+
+    void * memory = calloc(1, size);
+
+    if (memory == NULL) {
+        return NULL;
+    }
 
     arena->begin = memory;
-    arena->end = memory + size - 1;
     arena->size = size;
     arena->offset = 0;
 
