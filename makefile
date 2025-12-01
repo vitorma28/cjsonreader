@@ -5,7 +5,15 @@ mapfiles := $(wildcard src/map/*.c)
 testfile = build/test
 finalfile = build/final
 
+CC = gcc
+ctestflags = -g
+
+
+map_test: tests/map/map_test.c $(arenafiles) $(mapfiles)
+	@$(CC) $(ctestflags) -o $(testfile) tests/map/map_test.c $(arenafiles) $(mapfiles)
+	@echo "Compilação de arquivo de teste de Map concluída."
+
 
 arena_test: tests/arena/arena_test.c $(arenafiles)
-	@gcc -o $(testfile) tests/arena/arena_test.c $(arenafiles)
+	@$(CC) $(ctestflags) -o $(testfile) tests/arena/arena_test.c $(arenafiles)
 	@echo "Arquivo de teste de arena foi criado com sucesso."

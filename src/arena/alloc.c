@@ -7,7 +7,7 @@ void * ArenaAlloc(Arena * arena, size_t size_to_alloc) {
         return NULL;
     }
 
-    void * ptr = arena->begin + arena->size;
+    void * ptr = arena->begin + arena->offset;
     arena->offset += size_to_alloc;
 
     return ptr;

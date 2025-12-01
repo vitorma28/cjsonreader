@@ -31,4 +31,6 @@ void ArenaDestroy(Arena * arena);
 
 void ArenaAutoDestroy(Arena ** arena);
 
+void * ArenaRealloc(Arena * arena, void * oldPtr, size_t oldSize, size_t newSize);
+
 #endif

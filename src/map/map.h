@@ -34,10 +34,11 @@ typedef struct {
 } Map;
 
 
-Map * newMap(Arena * arena);
+Map * newMap(Arena * arena, size_t maxLength);
 Value * MapGet(Map * map, char * key);
+Map * MapSet(Arena * arena, Map * map, char * key, Value * value);
 
-MapEntry * newMapEntry(Arena * arena, char * key, Value * value);
+MapEntry newMapEntry(char * key, Value * value);
 
 Value * newValue(Arena * arena, JSTypes dataType, void * dataValue);
 
