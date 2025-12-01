@@ -2,10 +2,10 @@
 #include <string.h>
 
 
-void * ArenaRealloc(Arena * arena, void * oldPtr, size_t oldSize, size_t newSize) {
+void * __CJR_ArenaRealloc(__CJR_Arena * arena, void * oldPtr, size_t oldSize, size_t newSize) {
     if (newSize == 0) return NULL;
 
-    void * newPtr = ArenaAlloc(arena, newSize);
+    void * newPtr = __CJR_ArenaAlloc(arena, newSize);
 
     size_t sizeToRealloc = oldSize > newSize ? newSize : oldSize;
 

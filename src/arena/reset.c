@@ -1,6 +1,6 @@
 #include "./arena.h"
 
 
-void ArenaReset(Arena * arena) {
+void __CJR_ArenaReset(__CJR_Arena * arena) {
     arena->offset = 0;
 }

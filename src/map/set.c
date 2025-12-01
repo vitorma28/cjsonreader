@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 
-Map * MapSet(Arena * arena, Map * map, char * key, Value * value) {
+__CJR_Map * __CJR_MapSet(Arena * arena, __CJR_Map * map, char * key, __CJR_Value * value) {
     if (map->length == map->maxLength) {
         void * tmp = ArenaRealloc(
             arena,
@@ -13,14 +13,14 @@ Map * MapSet(Arena * arena, Map * map, char * key, Value * value) {
 
         if (tmp == NULL) return NULL;
 
-        map->entries = (MapEntry *) tmp;
+        map->entries = (__CJR_MapEntry *) tmp;
 
         map->maxLength *= 2;
     }
 
     size_t i = map->length;
 
-    map->entries[i] = newMapEntry(key, value);
+    map->entries[i] = __CJR_newMapEntry(key, value);
 
     map->length++;
 

@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 
-void ArenaAutoDestroy(Arena ** arena) {
-    ArenaDestroy(*arena);
+void __CJR_ArenaAutoDestroy(__CJR_Arena ** arena) {
+    __CJR_ArenaDestroy(*arena);
 
     free(*arena);
     *arena = NULL;

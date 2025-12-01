@@ -1,8 +1,8 @@
 #include "map.h"
 
 
-MapEntry newMapEntry(char * key, Value * value) {
-    MapEntry mapentry;
+__CJR_MapEntry __CJR_newMapEntry(char * key, __CJR_Value * value) {
+    __CJR_MapEntry mapentry;
 
     mapentry.key = key;
     mapentry.value = value;

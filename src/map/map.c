@@ -3,14 +3,14 @@
 #define MAP_MIN_LENGTH 8
 
 
-Map * newMap(Arena * arena, size_t maxLength) {
-    Map * map = (Map *) ArenaAlloc(arena, sizeof(Map));
+__CJR_Map * __CJR_newMap(Arena * arena, size_t maxLength) {
+    __CJR_Map * map = (__CJR_Map *) ArenaAlloc(arena, sizeof(__CJR_Map));
 
     if (map == NULL) return NULL;
 
     map->maxLength = maxLength == 0 ? MAP_MIN_LENGTH : maxLength;
     
-    map->entries = (MapEntry *) ArenaAlloc(arena, sizeof(MapEntry) * map->maxLength);
+    map->entries = (__CJR_MapEntry *) ArenaAlloc(arena, sizeof(__CJR_MapEntry) * map->maxLength);
 
     if (map->entries == NULL) return NULL;
 

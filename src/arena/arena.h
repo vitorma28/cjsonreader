@@ -14,23 +14,23 @@ typedef struct {
     void * begin;
     size_t size;
     size_t offset;
-} Arena;
+} __CJR_Arena;
 
 
 // Funções
 
-Arena * newArena(size_t size);
+__CJR_Arena * __CJR_newArena(size_t size);
 
-Arena * ArenaFrom(void * memory, size_t size);
+__CJR_Arena * __CJR_ArenaFrom(void * memory, size_t size);
 
-void * ArenaAlloc(Arena * arena, size_t size_to_alloc);
+void * __CJR_ArenaAlloc(__CJR_Arena * arena, size_t size_to_alloc);
 
-void ArenaReset(Arena * arena);
+void __CJR_ArenaReset(__CJR_Arena * arena);
 
-void ArenaDestroy(Arena * arena);
+void __CJR_ArenaDestroy(__CJR_Arena * arena);
 
-void ArenaAutoDestroy(Arena ** arena);
+void __CJR_ArenaAutoDestroy(__CJR_Arena ** arena);
 
-void * ArenaRealloc(Arena * arena, void * oldPtr, size_t oldSize, size_t newSize);
+void * __CJR_ArenaRealloc(__CJR_Arena * arena, void * oldPtr, size_t oldSize, size_t newSize);
 
 #endif

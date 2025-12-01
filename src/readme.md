@@ -1,6 +1,6 @@
 # Explicação de cada componente
 
-
+Funções, structs, enums ou quaisquer outras estruturas e códigos públicos que não sejam o código principal (JSONReader) da biblioteca deve possuir o prefixo `__CJR_`.
 
 ## Arena
 

@@ -12,35 +12,35 @@ typedef enum {
     OBJECT,
     ARRAY,
     JSNULL
-} JSTypes;
+} __CJR_JSTypes;
 
 
 typedef struct {
-    JSTypes type;
+    __CJR_JSTypes type;
     void * value;
-} Value;
+} __CJR_Value;
 
 
 typedef struct {
     char * key;
-    Value * value;
-} MapEntry;
+    __CJR_Value * value;
+} __CJR_MapEntry;
 
 
 typedef struct {
-    MapEntry * entries;
+    __CJR_MapEntry * entries;
     size_t length;
     size_t maxLength;
-} Map;
+} __CJR_Map;
 
 
-Map * newMap(Arena * arena, size_t maxLength);
-Value * MapGet(Map * map, char * key);
-Map * MapSet(Arena * arena, Map * map, char * key, Value * value);
+__CJR_Map * __CJR_newMap(Arena * arena, size_t maxLength);
+__CJR_Value * __CJR_MapGet(__CJR_Map * map, char * key);
+__CJR_Map * __CJR_MapSet(Arena * arena, __CJR_Map * map, char * key, __CJR_Value * value);
 
-MapEntry newMapEntry(char * key, Value * value);
+__CJR_MapEntry __CJR_newMapEntry(char * key, __CJR_Value * value);
 
-Value * newValue(Arena * arena, JSTypes dataType, void * dataValue);
+__CJR_Value * __CJR_newValue(Arena * arena, __CJR_JSTypes dataType, void * dataValue);
 
 
 #endif

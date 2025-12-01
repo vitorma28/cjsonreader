@@ -2,6 +2,6 @@
 #include <stdlib.h>
 
 
-void ArenaDestroy(Arena * arena) {
+void __CJR_ArenaDestroy(__CJR_Arena * arena) {
     free(arena->begin);
 }
