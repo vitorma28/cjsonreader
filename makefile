@@ -2,8 +2,8 @@ arenafiles := $(wildcard src/arena/*.c)
 jsonreaderfiles := $(wildcard src/jsonreader/*.c)
 mapfiles := $(wildcard src/map/*.c)
 
-testfile = build/test
-finalfile = build/final
+testfile = tests/test
+finalfile = final
 
 CC = gcc
 ctestflags = -g
