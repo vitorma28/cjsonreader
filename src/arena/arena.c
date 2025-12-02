@@ -1,9 +1,10 @@
+#include "private.h"
 #include "./arena.h"
 #include <stdlib.h>
 
 
-__CJR_Arena * __CJR_newArena(size_t size) {
-    __CJR_Arena * arena = (__CJR_Arena *) malloc(sizeof(__CJR_Arena));
+CJR_Arena * CJR_newArena(size_t size) {
+    CJR_Arena * arena = (CJR_Arena *) malloc(sizeof(CJR_Arena));
 
     if (arena == NULL) {
         return NULL;

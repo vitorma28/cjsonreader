@@ -1,8 +1,9 @@
+#include "private.h"
 #include "map.h"
 #include <stdio.h>
 
 
-__CJR_Map * __CJR_MapSet(Arena * arena, __CJR_Map * map, char * key, __CJR_Value * value) {
+CJR_Map * CJR_MapSet(CJR_Arena * arena, CJR_Map * map, char * key, CJR_Value * value) {
     if (map->length == map->maxLength) {
         void * tmp = ArenaRealloc(
             arena,
@@ -13,14 +14,14 @@ __CJR_Map * __CJR_MapSet(Arena * arena, __CJR_Map * map, char * key, __CJR_Value
 
         if (tmp == NULL) return NULL;
 
-        map->entries = (__CJR_MapEntry *) tmp;
+        map->entries = (CJR_MapEntry *) tmp;
 
         map->maxLength *= 2;
     }
 
     size_t i = map->length;
 
-    map->entries[i] = __CJR_newMapEntry(key, value);
+    map->entries[i] = CJR_newMapEntry(key, value);
 
     map->length++;
 

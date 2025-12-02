@@ -12,35 +12,25 @@ typedef enum {
     OBJECT,
     ARRAY,
     JSNULL
-} __CJR_JSTypes;
+} CJR_JSTypes;
 
 
-typedef struct {
-    __CJR_JSTypes type;
-    void * value;
-} __CJR_Value;
+typedef struct CJR_Value CJR_Value;
 
 
-typedef struct {
-    char * key;
-    __CJR_Value * value;
-} __CJR_MapEntry;
+typedef struct CJR_MapEntry CJR_MapEntry;
 
 
-typedef struct {
-    __CJR_MapEntry * entries;
-    size_t length;
-    size_t maxLength;
-} __CJR_Map;
+typedef struct CJR_Map CJR_Map;
 
 
-__CJR_Map * __CJR_newMap(Arena * arena, size_t maxLength);
-__CJR_Value * __CJR_MapGet(__CJR_Map * map, char * key);
-__CJR_Map * __CJR_MapSet(Arena * arena, __CJR_Map * map, char * key, __CJR_Value * value);
+CJR_Map * CJR_newMap(CJR_Arena * arena, size_t maxLength);
+CJR_Value * CJR_MapGet(CJR_Map * map, char * key);
+CJR_Map * CJR_MapSet(CJR_Arena * arena, CJR_Map * map, char * key, CJR_Value * value);
 
-__CJR_MapEntry __CJR_newMapEntry(char * key, __CJR_Value * value);
+CJR_MapEntry CJR_newMapEntry(char * key, CJR_Value * value);
 
-__CJR_Value * __CJR_newValue(Arena * arena, __CJR_JSTypes dataType, void * dataValue);
+CJR_Value * CJR_newValue(CJR_Arena * arena, CJR_JSTypes dataType, void * dataValue);
 
 
 #endif

@@ -1,16 +1,17 @@
+#include "private.h"
 #include "./map.h"
 
 #define MAP_MIN_LENGTH 8
 
 
-__CJR_Map * __CJR_newMap(Arena * arena, size_t maxLength) {
-    __CJR_Map * map = (__CJR_Map *) ArenaAlloc(arena, sizeof(__CJR_Map));
+CJR_Map * CJR_newMap(CJR_Arena * arena, size_t maxLength) {
+    CJR_Map * map = (CJR_Map *) ArenaAlloc(arena, sizeof(CJR_Map));
 
     if (map == NULL) return NULL;
 
     map->maxLength = maxLength == 0 ? MAP_MIN_LENGTH : maxLength;
     
-    map->entries = (__CJR_MapEntry *) ArenaAlloc(arena, sizeof(__CJR_MapEntry) * map->maxLength);
+    map->entries = (CJR_MapEntry *) ArenaAlloc(arena, sizeof(CJR_MapEntry) * map->maxLength);
 
     if (map->entries == NULL) return NULL;
 

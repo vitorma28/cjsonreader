@@ -1,8 +1,9 @@
+#include "private.h"
 #include "map.h"
 
 
-__CJR_Value * __CJR_newValue(Arena * arena, __CJR_JSTypes dataType, void * dataValue) {
-    __CJR_Value * value = (__CJR_Value *) ArenaAlloc(arena, sizeof(__CJR_Value));
+CJR_Value * CJR_newValue(CJR_Arena * arena, CJR_JSTypes dataType, void * dataValue) {
+    CJR_Value * value = (CJR_Value *) ArenaAlloc(arena, sizeof(CJR_Value));
 
     if (value == NULL) return NULL;
 

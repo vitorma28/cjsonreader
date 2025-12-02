@@ -10,27 +10,23 @@
 
 // Struct principal
 
-typedef struct {
-    void * begin;
-    size_t size;
-    size_t offset;
-} __CJR_Arena;
+typedef struct CJR_Arena CJR_Arena;
 
 
 // Funções
 
-__CJR_Arena * __CJR_newArena(size_t size);
+CJR_Arena * CJR_newArena(size_t size);
 
-__CJR_Arena * __CJR_ArenaFrom(void * memory, size_t size);
+CJR_Arena * CJR_ArenaFrom(void * memory, size_t size);
 
-void * __CJR_ArenaAlloc(__CJR_Arena * arena, size_t size_to_alloc);
+void * CJR_ArenaAlloc(CJR_Arena * arena, size_t size_to_alloc);
 
-void __CJR_ArenaReset(__CJR_Arena * arena);
+void CJR_ArenaReset(CJR_Arena * arena);
 
-void __CJR_ArenaDestroy(__CJR_Arena * arena);
+void CJR_ArenaDestroy(CJR_Arena * arena);
 
-void __CJR_ArenaAutoDestroy(__CJR_Arena ** arena);
+void CJR_ArenaAutoDestroy(CJR_Arena ** arena);
 
-void * __CJR_ArenaRealloc(__CJR_Arena * arena, void * oldPtr, size_t oldSize, size_t newSize);
+void * CJR_ArenaRealloc(CJR_Arena * arena, void * oldPtr, size_t oldSize, size_t newSize);
 
 #endif
